@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ЧистоДом — клининговые услуги на дому</title>
+  <meta name="description" content="Химчистка мягкой мебели и ковров, мойка окон, уборка квартир и офисов. Выезд в день обращения. Безопасные средства. Оплата картой." />
+  <meta name="theme-color" content="#0b0b12" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b12; --bg2:#12121c; --card:#171726;
+      --text:#eef0f6; --muted:#acb0c2; --accent:#22d3ee; --accent2:#38bdf8;
+      --ok:#36d399; --warn:#fbbf24; --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --max:1100px;
+      --grad: radial-gradient(90% 60% at 20% 10%, rgba(34,211,238,.20), rgba(56,189,248,.18), transparent);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; background:var(--bg); color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; }
+    img{max-width:100%; display:block}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    /* Header */
+    header{position:sticky; top:0; z-index:50; background:linear-gradient(180deg, rgba(11,11,18,.9), rgba(11,11,18,.5) 60%, transparent);
+      backdrop-filter:saturate(140%) blur(8px); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.3px}
+    .logo{width:34px; height:34px; border-radius:9px; background:conic-gradient(from 210deg,var(--accent),var(--accent2),var(--accent)); box-shadow:0 8px 18px rgba(56,189,248,.35)}
+    .menu{display:flex; gap:18px} .menu a{color:var(--muted); font-weight:600} .menu a:hover{color:var(--text)}
+    .cta{display:inline-flex; align-items:center; gap:.6rem; padding:10px 16px; border-radius:999px; background:linear-gradient(90deg,var(--accent),var(--accent2));
+      color:#0b0b12; font-weight:800; box-shadow:var(--shadow)}
+    .iconlink{display:inline-flex; align-items:center; gap:.4rem; padding:8px 12px; border:1px solid rgba(255,255,255,.12);
+      border-radius:999px; color:var(--text)}
+    .phones{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+    .burger{display:none; background:none; border:none; color:var(--text); font-size:24px}
+    /* Hero */
+    .hero{padding:96px 0 48px; background-image:var(--grad)}
+    .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center}
+    h1{font-family:"Playfair Display",serif; font-size:clamp(34px,6vw,60px); line-height:1.05; margin:0 0 10px}
+    .lead{color:var(--muted); font-size:clamp(16px,2.2vw,20px); margin:0 0 18px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px}
+    .list{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+    .badge{display:inline-flex; gap:.5rem; align-items:center; padding:6px 10px; border-radius:999px; background:#1b2034; color:#cfe6ff; font-size:13px; margin-bottom:10px}
+    .cover{aspect-ratio:4/5; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.08); box-shadow:0 20px 50px rgba(0,0,0,.5)}
+    .cover img{width:100%; height:100%; object-fit:cover}
+    /* Sections */
+    section{padding:74px 0}
+    .title{font-size:30px; margin:0 0 8px}
+    .sub{color:var(--muted); margin:0 0 18px}
+    /* Catalog */
+    .catalog{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px}
+    .card img{height:180px; object-fit:cover; border-radius:10px}
+    .card h3{margin:10px 0 6px; font-size:18px}
+    .price{font-weight:800}
+    .qty{display:flex; align-items:center; gap:8px; margin-top:6px}
+    .qty button{width:32px; height:32px; border-radius:8px; border:1px solid rgba(255,255,255,.18); background:#14182e; color:var(--text); cursor:pointer}
+    .add{margin-left:auto; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.18); background:#14182e; color:var(--text); cursor:pointer}
+    /* About icons */
+    .features{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .feature{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px}
+    /* Contacts */
+    .grid-2{display:grid; grid-template-columns:1.05fr .95fr; gap:16px}
+    .contact-card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:16px}
+    iframe{border:0; width:100%; height:250px; border-radius:12px}
+    /* Footer */
+    footer{padding:36px 0 60px; background:var(--bg2); border-top:1px solid rgba(255,255,255,.08)}
+    .foot{display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:16px}
+    .small{font-size:14px; color:var(--muted)}
+    /* Cart modal */
+    .modal{position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; align-items:center; justify-content:center; padding:20px}
+    .modal .box{background:var(--bg2); border:1px solid rgba(255,255,255,.12); border-radius:16px; max-width:680px; width:100%; padding:18px}
+    .row{display:flex; align-items:center; gap:10px; justify-content:space-between}
+    .row + .row{margin-top:8px}
+    .ghost{background:none; border:none; color:var(--text); font-size:22px; cursor:pointer}
+    .line{height:1px; background:rgba(255,255,255,.08); margin:12px 0}
+    .input{width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:#14182e; color:#fff}
+    /* Responsive */
+    @media (max-width:960px){
+      .menu{display:none} .burger{display:block}
+      .hero-grid,.grid-2{grid-template-columns:1fr}
+      .catalog{grid-template-columns:1fr 1fr}
+      .features{grid-template-columns:1fr 1fr}
+      .foot{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .catalog,.features{grid-template-columns:1fr}
+      .foot{grid-template-columns:1fr}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"ЧистоДом",
+    "telephone":"+7 (900) 000-00-00",
+    "areaServed":"RU",
+    "address":{"@type":"PostalAddress","streetAddress":"ул. Примерная, 10","addressLocality":"Ваш город","postalCode":"000000","addressCountry":"RU"},
+    "url":"https://your-domain.github.io",
+    "sameAs":["https://t.me/yourclean","https://wa.me/79000000000","https://vk.com/yourclean"]
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand"><div class="logo"></div><span>ЧистоДом</span></div>
+    <nav class="menu" aria-label="Главное меню">
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div style="display:flex; gap:8px; align-items:center">
+      <a class="iconlink" href="https://wa.me/79000000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="iconlink" href="https://t.me/yourclean" target="_blank" rel="noopener">Telegram</a>
+      <button id="cartBtn" class="cta" type="button">Оформить заказ <span id="cartCount">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">Оплата картой • Выезд в день обращения</div>
+        <h1>Клининговые услуги и химчистка на дому</h1>
+        <p class="lead">Вернём свежесть мебели и коврам прямо у вас дома. Удалим пятна, запахи, шерсть и пыль безопасными средствами. Чистим: диваны, кресла, стулья, матрасы, ковры, окна.</p>
+        <div class="hero-card">
+          <div class="list">
+            <div>✔ Химчистка мягкой мебели</div>
+            <div>✔ Чистка ковров и ковролина</div>
+            <div>✔ Мойка окон и витрин</div>
+            <div>✔ Уборка квартир/офисов</div>
+          </div>
+        </div>
+        <div style="height:14px"></div>
+        <div class="phones">
+          <a class="cta" href="tel:+79000000000">Позвонить</a>
+          <a class="iconlink" href="https://wa.me/79000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          <a class="iconlink" href="https://t.me/yourclean" target="_blank" rel="noopener">Написать в Telegram</a>
+        </div>
+      </div>
+      <div class="cover">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop" alt="Процесс химчистки мебели">
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section id="catalog">
+    <div class="container">
+      <h2 class="title">Каталог услуг</h2>
+      <p class="sub">Выберите позиции и оформите заявку без звонка. Все цены примерные — точная стоимость уточняется по фото/осмотру.</p>
+      <div class="catalog" id="catalogGrid">
+        <!-- Cards will be injected by JS for easier cart wiring -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="title">О нас</h2>
+      <p class="sub">Мы работаем с 2018 года. Используем гипоаллергенные и безопасные средства, бережно относимся к тканям и коже. Даем рекомендации по уходу и гарантируем результат.</p>
+      <div class="features">
+        <div class="feature"><b>Химчистка на дому</b><div class="small">Работаем без вывоза. Закрываем большинство пятен за 1 визит.</div></div>
+        <div class="feature"><b>Оплата картой</b><div class="small">Принимаем карты и онлайн-платежи, предоставляем чек.</div></div>
+        <div class="feature"><b>Предварительная запись</b><div class="small">Приезжаем в удобное для вас окно, работаем ежедневно.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contacts">
+    <div class="container grid-2">
+      <div class="contact-card">
+        <h3>Контакты</h3>
+        <p class="small">Телефон: <a href="tel:+79000000000">+7 (900) 000‑00‑00</a></p>
+        <p class="small">Telegram: <a href="https://t.me/yourclean" target="_blank" rel="noopener">@yourclean</a></p>
+        <p class="small">WhatsApp: <a href="https://wa.me/79000000000" target="_blank" rel="noopener">wa.me/79000000000</a></p>
+        <p class="small">Адрес: ул. Примерная, 10, Ваш город</p>
+        <p class="small">Ежедневно 09:00–21:00</p>
+        <p class="small">Реквизиты: ИП Иванов И.И., ИНН 000000000000</p>
+      </div>
+      <div class="contact-card">
+        <h3>Карта</h3>
+        <iframe title="Карта" loading="lazy"
+          src="https://maps.google.com/maps?q=Moscow&t=&z=11&ie=UTF8&iwloc=&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>
+      <div class="brand"><div class="logo"></div><span>ЧистоДом</span></div>
+      <div class="small">© <span id="year"></span> ЧистоДом. Все права защищены.</div>
+    </div>
+    <div>
+      <b>Навигация</b>
+      <div class="small"><a href="#catalog">Каталог</a></div>
+      <div class="small"><a href="#about">О нас</a></div>
+      <div class="small"><a href="#contacts">Контакты</a></div>
+    </div>
+    <div>
+      <b>Соцсети</b>
+      <div class="small"><a href="https://vk.com/yourclean" target="_blank" rel="noopener">VK</a></div>
+      <div class="small"><a href="https://t.me/yourclean" target="_blank" rel="noopener">Telegram</a></div>
+      <div class="small"><a href="https://wa.me/79000000000" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART MODAL -->
+<div class="modal" id="cartModal" aria-hidden="true">
+  <div class="box">
+    <div class="row">
+      <b>Ваш заказ</b>
+      <button class="ghost" id="closeCart" aria-label="Закрыть">×</button>
+    </div>
+    <div id="cartItems" class="small" style="margin-top:8px"></div>
+    <div class="line"></div>
+    <div class="row">
+      <div>Итого: <b><span id="cartTotal">0</span> ₽</b></div>
+      <button class="cta" id="checkout">Оформить</button>
+    </div>
+    <div class="line"></div>
+    <div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+        <input class="input" id="clientName" placeholder="Имя">
+        <input class="input" id="clientPhone" placeholder="Телефон">
+      </div>
+      <div style="height:8px"></div>
+      <textarea class="input" id="clientAddr" placeholder="Адрес / комментарий" rows="3"></textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Catalog data
+  const services = [
+    {id:'sofa', title:'Химчистка дивана', price:2500, img:'https://images.unsplash.com/photo-1582582621959-d141814c27b8?q=80&w=1200&auto=format&fit=crop'},
+    {id:'armchair', title:'Химчистка кресла', price:1200, img:'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop'},
+    {id:'mattress', title:'Химчистка матраса', price:2200, img:'https://images.unsplash.com/photo-1582582621959-2f28b7b5a1f9?q=80&w=1200&auto=format&fit=crop'},
+    {id:'carpet', title:'Чистка ковра (м²)', price:300, img:'https://images.unsplash.com/photo-1600566753364-2031b3c4db4a?q=80&w=1200&auto=format&fit=crop'},
+    {id:'windows', title:'Мойка окон (створка)', price:400, img:'https://images.unsplash.com/photo-1519710164239-4f6a2672f838?q=80&w=1200&auto=format&fit=crop'},
+    {id:'flat', title:'Уборка квартиры', price:3500, img:'https://images.unsplash.com/photo-1584628246862-2db7d3c4d7a7?q=80&w=1200&auto=format&fit=crop'}
+  ];
+
+  const grid = document.getElementById('catalogGrid');
+  services.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'card';
+    el.innerHTML = `
+      <img src="${s.img}" alt="${s.title}">
+      <h3>${s.title}</h3>
+      <div class="row">
+        <div class="price">${s.price.toLocaleString('ru-RU')} ₽</div>
+        <div class="qty">
+          <button aria-label="Минус" data-act="dec" data-id="${s.id}">−</button>
+          <span id="q_${s.id}">0</span>
+          <button aria-label="Плюс" data-act="inc" data-id="${s.id}">+</button>
+        </div>
+        <button class="add" data-act="add" data-id="${s.id}">В корзину</button>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+
+  // Simple cart
+  const cart = JSON.parse(localStorage.getItem('cart_v1')||'{}');
+  const $ = sel => document.querySelector(sel);
+  const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+  function qty(id){ return cart[id]?.qty || 0 }
+  function setQty(id, q){
+    if(q<=0){ delete cart[id]; } else {
+      cart[id] = { id, title: services.find(s=>s.id===id).title, price: services.find(s=>s.id===id).price, qty:q };
+    }
+    localStorage.setItem('cart_v1', JSON.stringify(cart));
+    updateUI();
+  }
+  function add(id){ setQty(id, qty(id)+1) }
+  function dec(id){ setQty(id, Math.max(0, qty(id)-1)) }
+
+  function updateUI(){
+    // counters on cards
+    services.forEach(s => {
+      const span = document.getElementById('q_'+s.id);
+      if(span) span.textContent = qty(s.id);
+    });
+    // cart count
+    const count = Object.values(cart).reduce((a,b)=>a+b.qty,0);
+    $('#cartCount').textContent = count;
+    // modal list
+    const wrap = $('#cartItems');
+    if(!wrap) return;
+    if(count===0){ wrap.innerHTML = '<div class="small">Корзина пуста.</div>'; $('#cartTotal').textContent = '0'; return; }
+    wrap.innerHTML = '';
+    let total = 0;
+    Object.values(cart).forEach(item => {
+      total += item.price * item.qty;
+      const row = document.createElement('div');
+      row.className = 'row';
+      row.innerHTML = `
+        <div style="flex:1">${item.title} × ${item.qty}</div>
+        <div>${(item.price*item.qty).toLocaleString('ru-RU')} ₽</div>
+        <button class="ghost" aria-label="Убрать" data-act="remove" data-id="${item.id}">×</button>
+      `;
+      wrap.appendChild(row);
+    });
+    $('#cartTotal').textContent = total.toLocaleString('ru-RU');
+  }
+
+  // Events for catalog
+  grid.addEventListener('click', (e)=>{
+    const btn = e.target.closest('button');
+    if(!btn) return;
+    const id = btn.dataset.id;
+    const act = btn.dataset.act;
+    if(act==='inc') add(id);
+    if(act==='dec') dec(id);
+    if(act==='add') add(id);
+  });
+
+  // Cart modal
+  const modal = $('#cartModal');
+  $('#cartBtn').addEventListener('click', ()=>{ modal.style.display='flex'; updateUI(); modal.setAttribute('aria-hidden','false'); });
+  $('#closeCart').addEventListener('click', ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); });
+
+  // Remove line in cart
+  $('#cartItems')?.addEventListener('click', (e)=>{
+    const btn = e.target.closest('button[data-act="remove"]');
+    if(!btn) return;
+    const id = btn.dataset.id;
+    setQty(id, 0);
+  });
+
+  // Checkout
+  $('#checkout').addEventListener('click', ()=>{
+    const name = ($('#clientName').value||'').trim();
+    const phone = ($('#clientPhone').value||'').trim();
+    const addr = ($('#clientAddr').value||'').trim();
+    if(!name || phone.length < 6){ alert('Укажите имя и телефон для связи.'); return; }
+    const items = Object.values(cart).map(i => `${i.title} × ${i.qty} = ${(i.price*i.qty).toLocaleString('ru-RU')} ₽`).join('%0A');
+    const total = Object.values(cart).reduce((a,b)=>a + b.price*b.qty, 0);
+    const text = `Заявка с сайта:%0AИмя: ${encodeURIComponent(name)}%0AТелефон: ${encodeURIComponent(phone)}%0AАдрес: ${encodeURIComponent(addr)}%0A%0A${items}%0AИтого: ${total.toLocaleString('ru-RU')} ₽`;
+    // By default open Telegram DM link (replace with your bot/channel if needed) or WhatsApp
+    const tg = 'https://t.me/yourclean';
+    const wa = `https://wa.me/79000000000?text=${text}`;
+    window.open(wa, '_blank');
+    alert('Заявка сформирована в WhatsApp. Вы можете заменить ссылку на свой Telegram-бот/CRM.');
+  });
+
+  updateUI();
+</script>
+</body>
+</html>
