@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Предварительный просмотр — Jazz Funk Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b12; --bg2:#12121c; --text:#e8e8ee; --muted:#a8a8b8;
+    --accent:#ff2d6b; --accent2:#ff8a00; --card:#181826; --radius:16px;
+    --max:1100px; --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box} html,body{height:100%}
+  body{margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--text); background:var(--bg); line-height:1.55}
+  img{max-width:100%; display:block}
+  a{text-decoration:none; color:inherit}
+  .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+  header{position:sticky; top:0; z-index:10; background:linear-gradient(180deg, rgba(11,11,18,.9), rgba(11,11,18,.5) 60%, transparent); border-bottom:1px solid rgba(255,255,255,.06); backdrop-filter: blur(8px) saturate(140%)}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .brand{display:flex; align-items:center; gap:.6rem; font-weight:800}
+  .logo{width:34px; height:34px; border-radius:9px; background:conic-gradient(from 210deg, var(--accent), var(--accent2), var(--accent)); box-shadow:0 8px 18px rgba(255,45,107,.35)}
+  .menu{display:flex; gap:18px} .menu a{color:var(--muted); font-weight:600} .menu a:hover{color:var(--text)}
+  .cta{display:inline-flex; align-items:center; gap:.5rem; padding:10px 16px; border-radius:999px; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0b12; font-weight:800; box-shadow:var(--shadow)}
+  .hero{padding:96px 0 48px; background: radial-gradient(80% 60% at 20% 10%, rgba(255,45,107,.25), rgba(255,138,0,.18), rgba(0,0,0,0))}
+  .grid-hero{display:grid; grid-template-columns:1.1fr 1fr; gap:28px; align-items:center}
+  h1{font-family:'Playfair Display', serif; font-size:clamp(36px,6vw,64px); line-height:1.05; margin:0 0 12px}
+  .sub{color:var(--muted); font-size:clamp(16px,2.2vw,20px); margin:0 0 20px}
+  .badge{display:inline-flex; gap:.5rem; align-items:center; padding:6px 10px; border-radius:999px; background:#1f1f2d; color:#cfd0df; font-size:13px; margin-bottom:10px}
+  .illustr{position:relative; aspect-ratio:4/5; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.08); box-shadow:0 20px 50px rgba(0,0,0,.5)}
+  section{padding:74px 0}
+  .title{font-size:32px; margin:0 0 8px}
+  .cards{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+  .card{background:var(--card); border-radius:12px; padding:16px; border:1px solid rgba(255,255,255,.06)}
+  .two{display:grid; grid-template-columns:1.1fr .9fr; gap:18px}
+  .table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:12px; border:1px solid rgba(255,255,255,.08); background:#141424}
+  .table th,.table td{padding:12px 14px; text-align:left; border-bottom:1px solid rgba(255,255,255,.06)}
+  .table th{background:#17172a; color:#cfd0ff}
+  .price{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:18px}
+  .big{font-size:34px; font-weight:800; margin:6px 0 2px}
+  .teachers{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .teacher img{height:220px; object-fit:cover; border-radius:10px}
+  .cta-band{background:linear-gradient(90deg, rgba(255,45,107,.18), rgba(255,138,0,.14)); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:18px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+  footer{padding:36px 0 60px; background:var(--bg2); border-top:1px solid rgba(255,255,255,.06)}
+  .foot{display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:16px}
+  .small{font-size:14px; color:var(--muted)}
+  @media (max-width:960px){
+    .grid-hero{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr 1fr}
+    .two{grid-template-columns:1fr}
+    .teachers{grid-template-columns:1fr 1fr}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    .cards,.teachers{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand"><div class="logo"></div><span>Jazz Funk Studio</span></div>
+    <nav class="menu">
+      <a href="#about">О стиле</a><a href="#schedule">Расписание</a><a href="#team">Преподаватели</a><a href="#prices">Цены</a><a href="#contact">Контакты</a>
+    </nav>
+    <a class="cta" href="#contact">Записаться</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container grid-hero">
+    <div>
+      <div class="badge">Пробное занятие — <b style="color:#fff">БЕСПЛАТНО</b></div>
+      <h1>Jazz&nbsp;Funk: стиль, энергия,<br>самовыражение в движении</h1>
+      <p class="sub">Группы для взрослых и подростков. С нуля и продвинутый уровень. Дружелюбная атмосфера и понятная методика.</p>
+      <a class="cta" href="#contact">Записаться на пробный</a>
+      <div style="height:18px"></div>
+      <div class="cards">
+        <div class="card"><b>С нуля за 8 недель</b><div class="small">База, пластика, акценты, мини-хорео.</div></div>
+        <div class="card"><b>Тело + уверенность</b><div class="small">Координация, музыкальность, сценичность.</div></div>
+        <div class="card"><b>Удобное расписание</b><div class="small">Утро/вечер, 2–3 раза в неделю.</div></div>
+        <div class="card"><b>Выступления и съёмки</b><div class="small">Клипы, отчётные, репортажи.</div></div>
+      </div>
+    </div>
+    <div class="illustr">
+      <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=1200&auto=format&fit=crop" alt="Танцовщица в динамичной позе">
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2 class="title">Что такое Jazz Funk?</h2>
+    <p class="sub">Смесь джаза и уличных стилей с акцентами, женственной пластикой и характером. Движение «читается» на музыку, а не поверх неё.</p>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="container two">
+    <div>
+      <h2 class="title">Расписание групп</h2>
+      <table class="table">
+        <thead><tr><th>День</th><th>Группа</th><th>Время</th></tr></thead>
+        <tbody>
+          <tr><td>Пн, Ср</td><td>Beginner 16+</td><td>19:00</td></tr>
+          <tr><td>Вт, Чт</td><td>Basic 16+</td><td>20:30</td></tr>
+          <tr><td>Сб</td><td>Teens 12–15</td><td>12:00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="prices">
+      <h2 class="title">Тарифы</h2>
+      <div class="price">
+        <div class="small">Первый визит</div>
+        <div class="big">Пробный урок — 0 ₽</div>
+        <div class="small">Абонементы:</div>
+        <ul class="small">
+          <li>4 занятия — 2 800 ₽ (30 дней)</li>
+          <li>8 занятий — 5 000 ₽ (45 дней)</li>
+          <li>Безлимит — 6 900 ₽/мес</li>
+          <li>Разовое — 900 ₽</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="container">
+    <h2 class="title">Преподаватели</h2>
+    <div class="teachers">
+      <div class="card teacher">
+        <img src="https://images.unsplash.com/photo-1520975774848-6bd7931a03a9?q=80&w=1200&auto=format&fit=crop" alt="Анна К.">
+        <b>Анна К.</b><div class="small">10 лет в Jazz Funk, финалистка баттлов.</div>
+      </div>
+      <div class="card teacher">
+        <img src="https://images.unsplash.com/photo-1543363136-47a79c1f596e?q=80&w=1200&auto=format&fit=crop" alt="Марк С.">
+        <b>Марк С.</b><div class="small">Коммерческая хореография, клипы и сцена.</div>
+      </div>
+      <div class="card teacher">
+        <img src="https://images.unsplash.com/photo-1522199873715-6355c8f07035?q=80&w=1200&auto=format&fit=crop" alt="Лина Р.">
+        <b>Лина Р.</b><div class="small">Техника, изоляции, teen-группы.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <b style="font-size:18px">Готовы начать?</b>
+        <div class="small">Оставьте контакты — администратор свяжется и подберёт группу.</div>
+      </div>
+      <a class="cta" href="#contact">Записаться</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container two">
+    <div class="card">
+      <h3>Запись на пробный урок</h3>
+      <form onsubmit="alert('Это превью. В Тильде форма отправится через подключённый приёмщик.'); return false;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+          <input style="padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:#141424; color:#fff" placeholder="Имя">
+          <input style="padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:#141424; color:#fff" placeholder="Телефон">
+        </div>
+        <div style="height:10px"></div>
+        <select style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.15); background:#141424; color:#fff">
+          <option>Beginner 16+</option><option>Basic 16+</option><option>Teens 12–15</option>
+        </select>
+        <div style="height:12px"></div>
+        <button class="cta" type="submit">Отправить</button>
+      </form>
+    </div>
+    <div class="card">
+      <h3>Контакты</h3>
+      <div class="small">ул. Примера, 10, Ваш город</div>
+      <div class="small">+7 (999) 123-45-67 • hello@jazzfunkstudio.ru</div>
+      <div class="small">Ежедневно 11:00–22:00</div>
+      <div style="height:10px"></div>
+      <iframe title="Карта" style="width:100%; height:220px; border:0; border-radius:10px"
+        loading="lazy" src="https://maps.google.com/maps?q=red%20square&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>
+      <div class="brand"><div class="logo"></div><span>Jazz Funk Studio</span></div>
+      <div class="small">© <span id="year"></span> Jazz Funk Studio. Все права защищены.</div>
+    </div>
+    <div>
+      <b>Навигация</b>
+      <div class="small"><a href="#about">О стиле</a></div>
+      <div class="small"><a href="#schedule">Расписание</a></div>
+      <div class="small"><a href="#team">Преподаватели</a></div>
+      <div class="small"><a href="#prices">Цены</a></div>
+    </div>
+    <div>
+      <b>Юридическое</b>
+      <div class="small"><a href="#">Политика конфиденциальности</a></div>
+      <div class="small"><a href="#">Публичная оферта</a></div>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
